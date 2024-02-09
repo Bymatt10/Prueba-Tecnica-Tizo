@@ -1,0 +1,10 @@
+# IntelliJ IDEA
+.idea/
+# Gradle
+build/
+.gradle/
+!gradle-wrapper.jar
+HELP.md
+gradlew.bat
+.vscode
+bin

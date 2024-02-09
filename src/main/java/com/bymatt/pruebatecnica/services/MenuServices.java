@@ -21,17 +21,16 @@ public class MenuServices {
         return new StandardResponseDto(HttpStatus.OK, list);
     }
 
-    public StandardResponseDto getMenuById() {
-        return null;
+    public StandardResponseDto getMenuById(long id) {
+        var menuEntity = menuRepository.findById(id);
+        if (menuEntity.isEmpty()) {
+            return  new StandardResponseDto(HttpStatus.NOT_FOUND);
+        }
+        return new StandardResponseDto(HttpStatus.OK, menuEntity.get());
     }
 
     public StandardResponseDto createMenu(MenuDto menuDto) {
-        try {
-            var menuEntity = MenuEntity.builder().name(menuDto.getName()).price(menuDto.getPrice()).state(menuDto.getState()).build();
-            var save = menuRepository.save(menuEntity);
-            return new StandardResponseDto(HttpStatus.OK, save);
-        } catch (Exception e) {
-            return new StandardResponseDto(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+            var save = menuRepository.save(new MenuEntity(menuDto));
+            return new StandardResponseDto(HttpStatus.CREATED, save);
     }
 }

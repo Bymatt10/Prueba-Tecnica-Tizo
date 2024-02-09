@@ -13,7 +13,7 @@ services:
       - '3306:3306'
     volumes:
       - test_vol:/var/lib/mysql
-      - /db/script/data.sql:/docker-entrypoint-initdb.d
+      - ./db/script:/docker-entrypoint-initdb.d
 
 volumes:
   test_vol:

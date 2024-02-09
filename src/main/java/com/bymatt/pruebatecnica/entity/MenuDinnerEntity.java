@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "MenuDinner")
+@Table(name = "menu_dinner")
 public class MenuDinnerEntity {
 
     @Id
@@ -18,9 +18,9 @@ public class MenuDinnerEntity {
     @JoinColumn(name = "id_dinner", referencedColumnName = "id_dinner", insertable = false, updatable = false)
     private DinnerEntity dinner;
 
-    @OneToMany(targetEntity = MenuEntity.class)
-    @Column(name = "id_menu")
-    private List<MenuEntity> menu;
+    @ManyToOne(targetEntity = MenuEntity.class)
+    @JoinColumn(name = "id_menu")
+    private MenuEntity menuuuuuu;
 
 }
 

@@ -8,3 +8,6 @@ HELP.md
 gradlew.bat
 .vscode
 bin
+gradlew
+gradle
+.Ds_Store
